@@ -23,14 +23,19 @@ createSquare()
 rangeText.onchange = function(){
     createSquare();
 }
+let colorPicker = document.querySelector('#colorpicker')
+let color = colorPicker.value
+colorPicker.onchange = function(){
+    color = colorPicker.value
+}
 
 document.addEventListener('mousedown', (event)=>{
     if (event.target.matches('.littleSquare')) {
-        event.target.style.backgroundColor = 'red'
+        event.target.style.backgroundColor = color
     }
     document.addEventListener('mouseover', (event)=>{
         if ((event.target.matches('.littleSquare'))&& (event.buttons == 1 || event.buttons == 3) ){
-            event.target.style.backgroundColor = 'red'
+            event.target.style.backgroundColor = color
         }
     })
 })
